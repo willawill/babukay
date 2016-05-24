@@ -1,6 +1,10 @@
 defmodule Babukay.VenueView do
   use Babukay.Web, :view
 
+  attributes [:id, :name]
+
+  has_one :location_pairs
+  
   def render("index.json", %{venues: venues}) do
     %{data: render_many(venues, Babukay.VenueView, "venue.json")}
   end
